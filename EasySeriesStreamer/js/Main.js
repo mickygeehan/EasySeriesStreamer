@@ -9,7 +9,46 @@
         episodeLinks = [],
         episodeNumberToTry = 0;
 
-    //start func
+
+
+    //Step 1 - Search Function
+    //step 2 - Populate table
+    //step 3 - On click get seasons and episodes of tv show
+    //step 4 - On click season display episodes
+    //step 5 - on click episode, decode to get host link, get the video url
+    //step 5 - load the video
+
+
+
+
+    //Step 1 & 2 - Search function and populate
+    function searchForSeries(input) {
+
+        //Clear the already listed shows
+        clearSeriesTable();
+
+        //get request to look for tv shows
+        $.get("http://ewatchseries.to/search/" + input, function (data, status) {
+            var epTitle,
+                epLink;
+
+            //loop through each series
+            $(data).find('.search-item-left').each(function () {
+                //Get the titles
+                epTitle = $(this).find('div:eq(6) > a > strong').text();
+                epLink = $(this).find('div:eq(6) > a').attr('href');
+
+                //Step 2 - Populate table
+                addSeriesToTable(epTitle, epLink);
+
+            });
+
+        });
+    }
+
+
+
+
 
     //functions for get req
     function clearSeriesTable() {
@@ -46,26 +85,7 @@
 
 
 
-    function searchForSeries(input) {
-        //console.log("http://ewatchseries.to/search/"+input);
-        clearSeriesTable();
-        $.get("http://ewatchseries.to/search/" + input, function (data, status) {
 
-            var epTitle,
-                epLink;
-
-            //finds
-            $(data).find('.search-item-left').each(function () {
-                //Get the titles
-                epTitle = $(this).find('div:eq(6) > a > strong').text();
-                epLink = $(this).find('div:eq(6) > a').attr('href');
-
-                addSeriesToTable(epTitle, epLink);
-
-            });
-
-        });
-    }
 
     function getSeasonsForSeries(url) {
         $.get(url, function (data, status) {
