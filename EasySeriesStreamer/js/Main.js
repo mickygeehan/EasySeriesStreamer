@@ -1,13 +1,16 @@
 /*jslint browser: true*/
 /*global $, jQuery*/
 /*jslint plusplus: true */
-
 (function () {
     "use strict";
     var seriesShowing = true,
         episodesAndLinks = [],
         episodeLinks = [],
         episodeNumberToTry = 0;
+
+    getData("The Office").done(handleSearch)
+
+
 
 
 
@@ -17,8 +20,6 @@
     //step 4 - On click season display episodes
     //step 5 - on click episode, decode to get host link, get the video url
     //step 5 - load the video
-
-
 
 
     //Step 1 & 2 - Search function and populate
