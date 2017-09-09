@@ -5,3 +5,10 @@ function getDataFromSearch(input) {
         type: 'GET'
     });
 }
+
+function getData(url){
+    return $.ajax({
+       url : url,
+        type: 'GET'
+    });
+}
