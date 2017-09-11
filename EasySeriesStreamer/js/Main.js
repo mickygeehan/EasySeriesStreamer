@@ -6,7 +6,8 @@
     var seriesShowing = true,
         episodesAndLinks = [],
         episodeLinks = [],
-        episodeNumberToTry = 0;
+        episodeNumberToTry = 0,
+        backElements = [];
 
 
     //Handlers
@@ -21,6 +22,10 @@
             epTitle = $(this).find('div:eq(6) > a > strong').text();
             epLink = $(this).find('div:eq(6) > a').attr('href');
 
+            backElements.push({
+                "eptitle": epTitle,
+                "epLink": epLink
+            });
             //Step 2 - Populate table
             addSeriesToTable(epTitle, epLink);
 
@@ -194,6 +199,7 @@
                 episodesAndLinks = [];
                 episodeLinks = [];
                 seriesShowing = true;
+                backElements = [];
                 getDataFromSearch($("#searchInput").val()).done(handleSearch);
             }
         });
@@ -230,6 +236,20 @@
             //getEpisodeLinks(episodeUrl);
             getData(episodeUrl).done(handleEpisodeHostLinks);
             console.log(episodeLinks);
+        });
+
+        $("#backButton").click( function() {
+
+            if(!seriesShowing){
+                episodesAndLinks = [];
+                episodeLinks = [];
+                seriesShowing = true;
+                clearSeriesTable();
+                for(var i=0; i < backElements.length;i++){
+                    addSeriesToTable(backElements[i].eptitle, backElements[i].epLink);
+                }
+            }
+
         });
 
 

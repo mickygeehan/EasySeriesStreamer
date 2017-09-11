@@ -1,16 +1,17 @@
 <html>
 
 <head>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap-4.0.0-beta-dist/js/popper.js"></script>
+    <script type="text/javascript" src="bootstrap-4.0.0-beta-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/Requests.js"></script>
+    <script type="text/javascript" src="js/TableFunctions.js"></script>
+    <script type="text/javascript" src="js/Main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/Requests.js"></script>
-<script type="text/javascript" src="js/TableFunctions.js"></script>
-<script type="text/javascript" src="js/Main.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
 
 
 <body>
@@ -20,13 +21,13 @@
         <div class="jumbotron">
             <div class="row">
                 <div class="col-md-9">
-                    <h2>Series Streamer</h2>
+                    <h2>Easy Series Streamer</h2>
                     <p>Simply serach below and click the show you want. Click an episode and it will load automatically below.</p>
                     <br />
                     <input id="searchInput" type="text" name="search" placeholder="Search then press enter..">
                 </div>
                 <div class="col-md-3">
-                    <img id="prisonMikeImage" style="width: inherit; border-radius: 25%;" src="https://vignette2.wikia.nocookie.net/theoffice/images/9/96/Prisonmike.png/revision/latest?cb=20100327171549" />
+                    <img id="prisonMikeImage" style="border-radius: 25%;" src="logo.png" />
                 </div>
 
 
@@ -52,6 +53,9 @@
 
 
         <p>Choose an episode and the video will then be automatically loaded into the player below the table!</p>
+        <button type="button" class="btn btn-default" id="backButton" aria-label="Left Align">
+            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+        </button>
         <div class="row">
             <div class="table-responsive col-md-4">
                 <div class="pre-scrollable" style="max-height: 430px;">
